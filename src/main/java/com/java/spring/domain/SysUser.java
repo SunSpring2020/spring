@@ -1,9 +1,12 @@
 package com.java.spring.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 @Table(name = "SYS_USER")
@@ -26,17 +29,16 @@ public class SysUser  implements Serializable {
     @Column(name = "ID_CARD",length = 20)
     private String idCard;
 
+    @Column(name = "PHONE",length = 11)
+    private String phone;
+
     @Column(name = "SEX")
     private Integer sex;
 
-    @Column(name = "YEAR",length = 4)
-    private Integer year;
-
-    @Column(name = "MONTH",length = 2)
-    private Integer month;
-
-    @Column(name = "DAY",length = 2)
-    private Integer day;
+    @Column(name = "BRITH_DAY", nullable = true, length = 7)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
+    private Date brithDay;
 
     @Column(name = "CARD",length = 20)
     private String card;
@@ -79,6 +81,14 @@ public class SysUser  implements Serializable {
         this.idCard = idCard;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     public Integer getSex() {
         return sex;
     }
@@ -87,28 +97,12 @@ public class SysUser  implements Serializable {
         this.sex = sex;
     }
 
-    public Integer getYear() {
-        return year;
+    public Date getBrithDay() {
+        return brithDay;
     }
 
-    public void setYear(Integer year) {
-        this.year = year;
-    }
-
-    public Integer getMonth() {
-        return month;
-    }
-
-    public void setMonth(Integer month) {
-        this.month = month;
-    }
-
-    public Integer getDay() {
-        return day;
-    }
-
-    public void setDay(Integer day) {
-        this.day = day;
+    public void setBrithDay(Date brithDay) {
+        this.brithDay = brithDay;
     }
 
     public String getCard() {
