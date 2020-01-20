@@ -38,6 +38,15 @@ public class SysUser  implements Serializable {
     @Column(name = "DAY",length = 2)
     private Integer day;
 
+    @Column(name = "CARD",length = 20)
+    private String card;
+
+    @Column(name = "NATURE",length = 10)
+    private String nature;
+
+    @Column(name = "EDUCATION",length = 10)
+    private String education;
+
     public String getId() {
         return id;
     }
@@ -100,5 +109,29 @@ public class SysUser  implements Serializable {
 
     public void setDay(Integer day) {
         this.day = day;
+    }
+
+    public String getCard() {
+        return card;
+    }
+
+    public void setCard(String card) {
+        this.card = card;
+    }
+
+    public String getNature() {
+        return nature;
+    }
+
+    public void setNature(String nature) {
+        this.nature = nature;
+    }
+
+    public String getEducation() {
+        return education;
+    }
+
+    public void setEducation(String education) {
+        this.education = education;
     }
 }
