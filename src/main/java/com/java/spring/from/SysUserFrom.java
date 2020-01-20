@@ -1,42 +1,26 @@
-package com.java.spring.domain;
+package com.java.spring.from;
 
-import org.hibernate.annotations.GenericGenerator;
+public class SysUserFrom {
 
-import javax.persistence.*;
-import java.io.Serializable;
-
-@Entity
-@Table(name = "SYS_USER")
-public class SysUser  implements Serializable {
-
-    private static final long serialVersionUID = -7768637914227571159L;
-
-    @Id
-    @GeneratedValue(generator = "idGenerator")
-    @GenericGenerator(name = "idGenerator", strategy = "uuid")
-    @Column(name = "ID", nullable = false, length = 42)
     private String id;
 
-    @Column(name = "NAME",length = 12)
     private String name;
 
-    @Column(name = "ADDRESS")
     private String addreess;
 
-    @Column(name = "ID_CARD",length = 20)
     private String idCard;
 
-    @Column(name = "SEX")
     private Integer sex;
 
-    @Column(name = "YEAR",length = 4)
     private Integer year;
 
-    @Column(name = "MONTH",length = 2)
     private Integer month;
 
-    @Column(name = "DAY",length = 2)
     private Integer day;
+
+    private int page;
+
+    private int limit;
 
     public String getId() {
         return id;
@@ -76,6 +60,22 @@ public class SysUser  implements Serializable {
 
     public void setSex(Integer sex) {
         this.sex = sex;
+    }
+
+    public int getPage() {
+        return page;
+    }
+
+    public void setPage(int page) {
+        this.page = page;
+    }
+
+    public int getLimit() {
+        return limit;
+    }
+
+    public void setLimit(int limit) {
+        this.limit = limit;
     }
 
     public Integer getYear() {
