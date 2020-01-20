@@ -19,7 +19,8 @@ public class SysUserService implements ISysUserService {
 
     @Override
     public SysUser getById(String id) {
-        //userDao.findById(id)的返回值为Optional<SysUser>类型，可以使用.get()方法简单处理；可以使用.orElse()方法进行空值处理
+        //userDao.findById(id)的返回值为Optional<SysUser>类型，可以使用.get()方法简单处理；
+        //可以使用.orElse()方法进行空值处理
         //使用findOne()方法会出现问题
         SysUser sysUser = userDao.findById(id).orElse(null);
         return sysUser;
